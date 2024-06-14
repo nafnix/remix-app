@@ -4,6 +4,14 @@
 
 - 📖 [Remix docs](https://remix.run/docs)
 
+## Use Template
+
+Start using this template:
+
+```bash
+pn dlx create-remix@latest --template nafnix/remix-app
+```
+
 ## Setup
 
 Install the dependencies:
@@ -24,14 +32,14 @@ pnpm run dev
 
 First, build your app for production:
 
-```sh
+```bash
 pnpm run build
 ```
 
 Then run the app in production mode:
 
-```sh
-pnpm start
+```bash
+pnpm run start
 ```
 
 Now you'll need to pick a host to deploy it to.
@@ -49,6 +57,6 @@ Make sure to deploy the output of `pnpm run build`
 
 Build this application using the `compose.yaml` file in the project root directory.
 
-```sh
+```bash
 docker compose up --build
 ```
