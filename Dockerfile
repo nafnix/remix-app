@@ -37,7 +37,8 @@ RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=cache,target=/pnpm/store \
     pnpm install --frozen-lockfile
 
-COPY --from=build /src/build /src/package.json ./
+COPY --from=build /src/build ./build
+COPY --link package.json .
 
 ENV HOST=0.0.0.0 PORT=5555
 EXPOSE 5555/tcp
@@ -46,4 +47,4 @@ EXPOSE 5555/tcp
 USER node
 
 # Run the application.
-CMD pnpm remix-serve ./server/index.js
+CMD pnpm run start
