@@ -9,7 +9,7 @@
 Start using this template:
 
 ```bash
-pn dlx create-remix@latest --template nafnix/remix-app
+pnpm dlx create-remix@latest --template nafnix/remix-app
 ```
 
 ## Setup
