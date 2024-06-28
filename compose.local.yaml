@@ -1,0 +1,33 @@
+# https://docs.docker.com/compose/compose-file/
+
+services:
+  db:
+    image: postgres
+    container_name: db
+    healthcheck:
+      test: pg_isready
+      timeout: 5s
+      interval: 10s
+      retries: 5
+    environment:
+      # - POSTGRES_DB=postgres
+      # - POSTGRES_USER=postgres
+      # - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+
+  admin:
+    image: dpage/pgadmin4
+    container_name: admin
+    depends_on:
+      - db
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=uwu@nafnix.com
+      - PGADMIN_DEFAULT_PASSWORD=uwu@nafnix.com
+    ports:
+      - 8000:80
+    volumes:
+      - ./data/admin:/var/lib/pgadmin

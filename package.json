@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "author": "Nafnix",
-  "license": "MIT",
+  "license": "WTFPL",
   "engines": {
     "node": ">=20.0.0"
   },
@@ -20,7 +20,6 @@
     "@remix-run/node": "^2.9.2",
     "@remix-run/react": "^2.9.2",
     "@remix-run/serve": "^2.9.2",
-    "husky": "^9.0.11",
     "isbot": "4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
@@ -37,6 +36,7 @@
     "eslint-plugin-format": "^0.1.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
     "typescript": "^5.4.5",
     "unocss": "^0.61.0",

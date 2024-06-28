@@ -1,0 +1,32 @@
+{
+  "name": "Remix App",
+  "dockerComposeFile": "compose.yaml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "remoteUser": "node",
+
+  // 👇 Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
+  "features": { "ghcr.io/devcontainers/features/docker-in-docker:2": {} },
+
+  // 👇 Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [
+    5432
+    // 6379
+  ],
+
+  // 👇 Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "pnpm install",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "streetsidesoftware.code-spell-checker",
+        "dbaeumer.vscode-eslint",
+        "antfu.file-nesting",
+        "dsznajder.es7-react-js-snippets",
+        "amimaro.remix-run-snippets",
+        "antfu.unocss"
+      ]
+    }
+  }
+}
