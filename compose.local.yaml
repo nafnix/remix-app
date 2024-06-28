@@ -17,7 +17,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - ./.cache/docker/db:/var/lib/postgresql/data
 
   admin:
     image: dpage/pgadmin4
@@ -30,4 +30,7 @@ services:
     ports:
       - 8000:80
     volumes:
-      - ./data/admin:/var/lib/pgadmin
+      - admin-data:/var/lib/pgadmin
+
+volumes:
+  admin-data:

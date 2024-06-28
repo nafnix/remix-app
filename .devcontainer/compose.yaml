@@ -26,3 +26,19 @@ services:
   #   image: redis:alpine
   #   volumes:
   #     - ../data/redis:/data
+
+  admin:
+    image: dpage/pgadmin4
+    container_name: admin
+    depends_on:
+      - db
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=uwu@nafnix.com
+      - PGADMIN_DEFAULT_PASSWORD=uwu@nafnix.com
+    ports:
+      - 8000:80
+    volumes:
+      - admin-data:/var/lib/pgadmin
+
+volumes:
+  admin-data:

@@ -10,7 +10,8 @@
 
   // 👇 Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [
-    5432
+    5432,
+    8000
     // 6379
   ],
 
