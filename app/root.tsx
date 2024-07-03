@@ -1,15 +1,8 @@
-import type { LinksFunction } from "@remix-run/node"
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  isRouteErrorResponse,
-  useRouteError,
-} from "@remix-run/react"
 import reset from "@unocss/reset/tailwind.css?url"
 import "virtual:uno.css"
+
+import { useChangeLanguage } from "remix-i18next/react"
+import { useTranslation } from "react-i18next"
 
 export const links: LinksFunction = () => {
   return [
@@ -17,9 +10,19 @@ export const links: LinksFunction = () => {
   ]
 }
 
+export async function loader({ request }: LoaderFunctionArgs) {
+  const locale = await i18n.getLocale(request)
+  return json({ locale })
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
+  const { locale } = useLoaderData<typeof loader>()
+  const { i18n } = useTranslation()
+
+  useChangeLanguage(locale)
+
   return (
-    <html lang="en">
+    <html lang={locale} dir={i18n.dir()}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

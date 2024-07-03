@@ -1,16 +1,29 @@
-import type { MetaFunction } from "@remix-run/node"
+export async function loader({ request }: LoaderFunctionArgs) {
+  const t = await i18n.getFixedT(request)
 
-export const meta: MetaFunction = () => {
+  const title: string = t("common.welcome")
+  const world = t("glossary.world")
+
+  return json({ title, world })
+}
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
   return [
-    { title: "New Remix App" },
+    { title: data!.title },
     { name: "description", content: "Welcome to Remix!" },
   ]
 }
 
 export default function Index() {
+  const data = useLoaderData<typeof loader>()
+
   return (
     <div>
-      <h1 className="text-3xl">Welcome to Remix & UnoCSS</h1>
+      <h1 className="text-3xl">{data.title}</h1>
+      <h2 className="text-xl">
+        hello:
+        {data.world}
+      </h2>
       <ul>
         <li>
           <a
