@@ -12,14 +12,14 @@ RUN corepack enable
 
 WORKDIR /src
 
+COPY --link package.json pnpm-lock.yaml ./
+
 
 FROM base AS production-deps
 
 ENV NODE_ENV=production
 
-RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
-    --mount=type=cache,target=/pnpm/store \
+RUN --mount=type=cache,target=/pnpm/store \
     pnpm install --frozen-lockfile --ignore-scripts
 
 
@@ -27,9 +27,7 @@ FROM base AS build
 
 COPY --from=production-deps /src/node_modules ./node_modules
 
-RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
-    --mount=type=cache,target=/pnpm/store \
+RUN --mount=type=cache,target=/pnpm/store \
     pnpm install --frozen-lockfile --ignore-scripts
 
 COPY --link . .
@@ -44,7 +42,7 @@ ENV NODE_ENV=production
 
 COPY --from=build /src/build ./build
 COPY --from=production-deps /src/node_modules ./node_modules
-COPY --link package.json .
+COPY --link locales locales
 
 ENV HOST=0.0.0.0 PORT=5555
 EXPOSE 5555/tcp
