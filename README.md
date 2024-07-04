@@ -1,15 +1,21 @@
-# Welcome to Remix App!
+# Welcome to Remixing!
 
 [![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
 
-- 📖 [Remix docs](https://remix.run/docs)
+- [Remix](https://remix.run/docs)
+- [TypeScript](https://www.typescriptlang.org)
+- [UnoCSS](https://github.com/antfu/unocss)
+- [I18n](https://www.i18next.com/)
+- [unplugin-auto-import](https://github.com/unplugin/unplugin-auto-import)
+- [ESLint](https://eslint.org/) with [@antfu/eslint-config](https://github.com/antfu/eslint-config)
+- [Husky](https://github.com/typicode/husky) with [lint-staged](https://github.com/lint-staged/lint-staged)
 
 ## Use Template
 
 Start using this template:
 
 ```bash
-pnpm dlx create-remix@latest --template nafnix/remix-app
+pnpm dlx create-remix@latest --template nafnix/remixing
 ```
 
 ## Setup
