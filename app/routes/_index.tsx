@@ -1,7 +1,9 @@
+import { appName } from "~/constants"
+
 export async function loader({ request }: LoaderFunctionArgs) {
   const t = await i18n.getFixedT(request)
 
-  const title: string = t("common.welcome")
+  const title = t("common.welcome", { appName })
   const world = t("glossary.world")
 
   return json({ title, world })
