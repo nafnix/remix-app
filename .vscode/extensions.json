@@ -9,6 +9,10 @@
     "ms-azuretools.vscode-docker",
     "dsznajder.es7-react-js-snippets",
     "amimaro.remix-run-snippets",
-    "antfu.unocss"
+    "antfu.unocss",
+    "antfu.goto-alias",
+    "lokalise.i18n-ally",
+    "csstools.postcss",
+    "editorconfig.editorconfig"
   ]
 }
