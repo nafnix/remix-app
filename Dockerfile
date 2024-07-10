@@ -42,7 +42,7 @@ ENV NODE_ENV=production
 
 COPY --from=build /src/build ./build
 COPY --from=production-deps /src/node_modules ./node_modules
-COPY --link locales locales
+COPY --link public public
 
 ENV HOST=0.0.0.0 PORT=5555
 EXPOSE 5555/tcp
