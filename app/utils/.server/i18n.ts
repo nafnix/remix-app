@@ -5,7 +5,7 @@ import { i18nInitOptions, loadPath } from "~/i18n"
 
 export const i18nServerInitOptions: typeof i18nInitOptions = {
   ...i18nInitOptions,
-  backend: { loadPath: resolve(loadPath) },
+  backend: { loadPath: resolve("public", loadPath) },
 }
 
 export default new RemixI18Next({
